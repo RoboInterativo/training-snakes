@@ -214,7 +214,7 @@ class GameState(object):
     @property
     def all_snakes(self):
         if self._all_snakes is None:
-            self._all_snakes = [Snake(d) for d in self.data["snakes"]
+            self._all_snakes = [Snake(d) for d in self.data["snakes"]]
         return self._all_snakes
 
     @property
