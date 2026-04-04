@@ -62,5 +62,5 @@ class Snake0(BaseSnake):
     def taunt(self):
         return ""
 
-    def end(self):
+    def end(self, details):
         pass

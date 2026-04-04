@@ -24,6 +24,6 @@ class Snake1(Snake0):
 
     def taunt(self):
         return ""
-    # 
-    # def end(self,argv):
-    #     pass
+    #
+    def end(self, details):
+        pass
