@@ -238,7 +238,7 @@ class GameState(object):
     @property
     def food(self):
         if self._food is None:
-            self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]
+            self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]]
         return self._food
 
     def next_gamestate(self, moves):
