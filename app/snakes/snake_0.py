@@ -48,7 +48,7 @@ class Snake0(BaseSnake):
             return up
         if farthest == b_wall:
             return down
-    return up
+        return up
 
     def name(self):
         return "Training Snake 0"
