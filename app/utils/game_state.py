@@ -47,8 +47,9 @@ class GameState(object):
         if self._empty_squares is not None:
             return self._empty_squares
 
-        width = self.data["width"]
-        height = self.data["height"]
+        width = self.data["board"]["width"]
+
+        height = self.data["board"]["height"]
         empty_squares = {}
         for x in range(0, width):
             for y in range(0, height):
