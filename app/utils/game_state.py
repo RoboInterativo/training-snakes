@@ -215,7 +215,7 @@ class GameState(object):
     @property
     def all_snakes(self):
         if self._all_snakes is None:
-            self._all_snakes = [Snake(d) for d in self.data["snakes"]]
+            self._all_snakes = [Snake(d) for d in self.data["board"]["snakes"]]
         return self._all_snakes
 
     @property
@@ -226,11 +226,11 @@ class GameState(object):
 
     @property
     def board_width(self):
-        return self.data["width"]
+        return self.data["board"]["width"]
 
     @property
     def board_height(self):
-        return self.data["height"]
+        return self.data["board"]["height"]
 
     @property
     def turn(self):
@@ -239,7 +239,7 @@ class GameState(object):
     @property
     def food(self):
         if self._food is None:
-            self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]]
+            self._food = [Vector(f["x"], f["y"]) for f in self.data["board"]["food"]]
         return self._food
 
     def next_gamestate(self, moves):
