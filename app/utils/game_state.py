@@ -19,8 +19,11 @@ class GameState(object):
     def other_heads(self):
         if self._other_heads is None:
             heads = []
-            for snake in self.data["snakes"]["data"]:
-                head = snake["body"]["data"][0]
+            #snakes =a["board"]["snakes"]
+            #for snake in self.data["snakes"]["data"]:
+            for snake in self.data["snakes"]:
+
+                head = snake["body"][0]
                 heads.append(Vector(head["x"], head["y"]))
             self._other_heads = heads
         return self._other_heads
@@ -211,7 +214,7 @@ class GameState(object):
     @property
     def all_snakes(self):
         if self._all_snakes is None:
-            self._all_snakes = [Snake(d) for d in self.data["snakes"]["data"]]
+            self._all_snakes = [Snake(d) for d in self.data["snakes"]
         return self._all_snakes
 
     @property
@@ -235,7 +238,7 @@ class GameState(object):
     @property
     def food(self):
         if self._food is None:
-            self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]["data"]]
+            self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]
         return self._food
 
     def next_gamestate(self, moves):
@@ -244,11 +247,11 @@ class GameState(object):
             p = self.me.head + direction
             next_coord = {"x": p.x, "y": p.y, "object": "point"}
             if snake_id == self.me.id:
-                next_payload["you"]["body"]["data"].insert(0, next_coord)
-                del next_payload["you"]["body"]["data"][-1]
+                next_payload["you"]["body"].insert(0, next_coord)
+                del next_payload["you"]["body"][-1]
 
-            for i in range(0, len(next_payload["snakes"]["data"])):
-                if next_payload["snakes"]["data"][i]["id"] == snake_id:
-                    next_payload["snakes"]["data"][i] = next_payload["you"]
+            for i in range(0, len(next_payload["snakes"])):
+                if next_payload["snakes"][i]["id"] == snake_id:
+                    next_payload["snakes"][i] = next_payload["you"]
                     break
         return GameState(next_payload)

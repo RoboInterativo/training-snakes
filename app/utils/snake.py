@@ -10,7 +10,7 @@ class Snake(object):
     @property
     def coords(self):
         if self._coords is None:
-            points = self.data["body"]["data"]
+            points = self.data["body"]
             self._coords = [Vector(p["x"], p["y"]) for p in points]
         return self._coords
 
