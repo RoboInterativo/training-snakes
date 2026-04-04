@@ -1,4 +1,4 @@
-from game_state import GameState
+from .game_state import GameState
 
 
 def build_test_gamestate(width=3, height=3, me=[(0,0)], opponents=[], food=[]):
@@ -43,5 +43,3 @@ def build_test_gamestate(width=3, height=3, me=[(0,0)], opponents=[], food=[]):
     data["snakes"]["data"].append(data["you"])
     gs = GameState(data)
     return gs
-
-

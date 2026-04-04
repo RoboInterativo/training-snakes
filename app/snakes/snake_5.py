@@ -1,5 +1,5 @@
-from utils.vector import up, down, left, right
-from base_snake import BaseSnake
+from ..utils.vector import up, down, left, right, noop
+from .base_snake import BaseSnake
 
 
 class SimpleHungrySnake(BaseSnake):

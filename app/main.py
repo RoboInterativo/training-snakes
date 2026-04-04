@@ -1,6 +1,12 @@
+# app/main.py
 import flask
 import json
-from snakes import get_snake
+from .snakes import get_snake  # ← заменили .snakes на app.snakes
+
+
+app = flask.Flask(__name__)
+
+# ... остальной код без изменений
 
 app = flask.Flask(__name__)
 

@@ -1,17 +1,19 @@
-from snake_11 import SurroundSnake
-from snake_10 import ControlFreak
-from snake_9 import TailChaser2
-from snake_8 import TailChaser
-from snake_7 import AttemptKillsSnake
-from snake_6 import SimpleSometimesHungrySnake
-from snake_5 import SimpleHungrySnake
-from snake_4 import ScaredSnake
-from snake_3 import Snake3
-from snake_2 import Snake2
-from snake_1 import Snake1
-from snake_0 import Snake0
+# app/snakes/__init__.py
+from .snake_11 import SurroundSnake
+from .snake_10 import ControlFreak
+from .snake_9 import TailChaser2
+from .snake_8 import TailChaser
+from .snake_7 import AttemptKillsSnake
+from .snake_6 import SimpleSometimesHungrySnake
+from .snake_5 import SimpleHungrySnake
+from .snake_4 import ScaredSnake
+from .snake_3 import Snake3
+from .snake_2 import Snake2
+from .snake_1 import Snake1
+from .snake_0 import Snake0
 
 _snakes = None
+_default_snake = None
 
 SNAKE_CLASSES = [
     Snake0,
@@ -28,15 +30,15 @@ SNAKE_CLASSES = [
     SurroundSnake,
 ]
 
-
 def get_snake(snake_name):
-    global _snakes
+    global _snakes, _default_snake
 
     if _snakes is None:
         _snakes = {}
         for snake_class in SNAKE_CLASSES:
             snake = snake_class()
-            name = "snake_%d" % snake.DIFFICULTY
+            name = f"snake_{snake.DIFFICULTY}"
             _snakes[name] = snake
+        _default_snake = Snake1()
 
-    return _snakes.get(snake_name, Snake1())
+    return _snakes.get(snake_name, _default_snake)

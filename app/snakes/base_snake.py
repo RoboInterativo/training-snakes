@@ -1,7 +1,7 @@
+# app/snakes/base_snake.py
 import random
-from utils.game_state import GameState
-from logic import BadMoves
-
+from ..utils.game_state import GameState  # ✅ относительный импорт (на уровень выше)
+from ..logic import BadMoves  # ✅ относительный импорт
 
 class BaseSnake(BadMoves):
 
@@ -19,7 +19,7 @@ class BaseSnake(BadMoves):
         return "snake_%d" % self.DIFFICULTY
 
     def move(self, gamestate):
-        raise NotImplemented("this should be overridden on implementations of snakes")
+        raise NotImplementedError("this should be overridden on implementations of snakes")  # ✅ Исправлено: NotImplemented -> NotImplementedError
 
     def end(self, details):
         pass

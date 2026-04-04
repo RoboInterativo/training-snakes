@@ -1,6 +1,6 @@
 import random
-from base_snake import BaseSnake
-from snake_6 import SimpleSometimesHungrySnake
+from .base_snake import BaseSnake
+from .snake_6 import SimpleSometimesHungrySnake
 
 
 class AttemptKillsSnake(BaseSnake):

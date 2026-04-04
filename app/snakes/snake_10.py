@@ -1,6 +1,6 @@
-from base_snake import BaseSnake
-from utils.vector import up, down, left, right, Vector
-from logic import BadMoves, ChaiseTail, Eat, Kill, PathDistances, IncreaseBoardControl
+from .base_snake import BaseSnake
+from ..utils.vector import up, down, left, right, Vector
+from ..logic import BadMoves, ChaiseTail, Eat, Kill, PathDistances, IncreaseBoardControl
 
 
 class ControlFreak(BaseSnake, BadMoves, ChaiseTail, Eat, Kill, PathDistances, IncreaseBoardControl):

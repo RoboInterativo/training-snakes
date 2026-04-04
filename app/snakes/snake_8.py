@@ -1,6 +1,6 @@
-from base_snake import BaseSnake
-from utils.vector import up, down, left, right
-from logic import BadMoves, ChaiseTail, Eat, Kill, OrthogonalDistances
+from .base_snake import BaseSnake
+from ..utils.vector import up, down, left, right
+from ..logic import BadMoves, ChaiseTail, Eat, Kill, OrthogonalDistances
 
 
 class TailChaser(BaseSnake, BadMoves, ChaiseTail, Eat, Kill, OrthogonalDistances):
