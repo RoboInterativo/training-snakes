@@ -246,7 +246,7 @@ class GameState(object):
         next_payload = copy.copy(self.data)
         for snake_id, direction in moves:
             p = self.me.head + direction
-            next_coord = {"x": p.x, "y": p.y, "object": "point"}
+            next_coord = {"x": p.x, "y": p.y}
             if snake_id == self.me.id:
                 next_payload["you"]["body"].insert(0, next_coord)
                 del next_payload["you"]["body"][-1]

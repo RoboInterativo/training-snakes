@@ -19,8 +19,9 @@ def build_test_gamestate(width=3, height=3, me=[(0,0)], opponents=[], food=[]):
             "y": t[1]
         } for t in tuples]
     data= {
+    "turn": 0,
     "game":{
-        "turn": 0
+
     },
     "board":
      {

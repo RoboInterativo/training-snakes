@@ -7,6 +7,7 @@ class Snake(object):
         self.data = data
         self._coords = None
 
+
     @property
     def coords(self):
         if self._coords is None:
@@ -17,6 +18,7 @@ class Snake(object):
     @property
     def head(self):
         return self.coords[0]
+        
 
     @property
     def neck(self):
