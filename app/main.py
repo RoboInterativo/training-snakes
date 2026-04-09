@@ -43,7 +43,7 @@ def move(snake_name):
 
     if type(move) is tuple:
         move, taunt = move
-        return j{
+        return {
             "move": move.direction(),
             "taunt": taunt
         }
