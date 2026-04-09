@@ -24,12 +24,12 @@ def index(snake_name):
 def start(snake_name):
     snake = get_snake(snake_name)
 
-    return json.dumps({
+    return {
         'name': snake.name(),
         'color': snake.color(),
         'head_url': "https://www.placecage.com/50/50",
         'taunt': "hello"
-    })
+    }
 
 
 @app.route('/<snake_name>/move', methods=['GET', 'POST'])
@@ -39,19 +39,19 @@ def move(snake_name):
     gamestate = snake.payload_to_game_state(data)
     move = snake.move(gamestate)
     if move is None:
-        return json.dumps({"move": "up", 'taunt': "hello"})
+        return {"move": "up", 'taunt': "hello"}
 
     if type(move) is tuple:
         move, taunt = move
-        return json.dumps({
+        return j{
             "move": move.direction(),
             "taunt": taunt
-        })
+        }
 
-    return json.dumps({
+    return {
         'taunt': "hello",
         "move": move.direction()
-    })
+    }
 
 
 @app.route('/<snake_name>/end', methods=['GET', 'POST'])
@@ -59,7 +59,7 @@ def end(snake_name):
     snake = get_snake(snake_name)
     data = flask.request.json
     snake.end(data)
-    return json.dumps({})
+    return {}
 
 
 if __name__ == "__main__":

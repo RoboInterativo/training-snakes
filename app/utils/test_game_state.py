@@ -1,7 +1,6 @@
 from ..utils.vector import Vector as V
 from .test import build_test_gamestate
-
-
+from .test_data import *
 def test_empty():
     gs = build_test_gamestate(1, 2, me=[(0, 1), (0, 0)])
     assert gs.is_empty(V(0, 0)) == False
@@ -46,3 +45,10 @@ def test_distance_to_turn_around():
         (tailV, 4, [headV, V(1, 1), V(1, 0), tailV])
     ]
     assert dists1 == expected1
+
+# def test_real_gs():
+#     gs=GameState(real_json1)
+#     print(gs.me.head)
+#     assert gs.me.head["x"]=0
+#     assert gs.me.head["y"]=4
+    #{'x': 0, 'y': 4}
