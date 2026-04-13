@@ -1,4 +1,5 @@
 FROM python:2.7-slim
+apt update && apt install -y gcc
 
 # Install app
 COPY . /usr/app
