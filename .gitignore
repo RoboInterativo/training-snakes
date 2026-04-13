@@ -1,3 +1,6 @@
 *.pyc
 .idea*
 .pytest_cache*
+venv
+venv27
+
