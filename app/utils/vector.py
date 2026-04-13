@@ -1,12 +1,12 @@
 import math
 
-
-class Vector(object):
-
+class Vector:
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self._mag = None
+
+
 
     def direction(self):
         return {
@@ -51,11 +51,13 @@ class Vector(object):
                 f_dist = dist
         return f
 
-    def __repr__(self):
-        return self.__unicode__()
+   def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
 
-    def __unicode__(self):
-        return u"{}".format(self.__str__())
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+
 
     def __str__(self):
         return "({}, {})".format(self.x, self.y)
