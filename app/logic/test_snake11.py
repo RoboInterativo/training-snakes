@@ -28,7 +28,7 @@ def test_left_wall():
     gs = build_test_gamestate(11,11, me=you, food=[])
     #gs = create_minimal_game_state(you, [])  # Пустой список других змей
     # snake = Snake0()
-    snake = get_snake('snake0')
+    snake = get_snake('snake11')
 
     # Вызываем метод на экземпляре
     move = snake.move(gamestate=gs)
@@ -40,17 +40,21 @@ def test_left_wall():
     assert move.direction() in ["right", "up", "down"]
     assert move.direction() != "left"  # Явно проверяем, что не в стену
 
-# def test_right_wall():
-#     """Змея у правой стены (x=10 при width=11) - нельзя двигаться вправо"""
-#     width = 11
-#     height = 11
-#     you = [(width-1, 1), (width-1, 2), (width-1, 3)]
-#     gs = create_minimal_game_state(you, [])
-#     m = move(gs)
-#
-#     # Безопасные направления: влево, вверх, вниз
-#     assert m["move"] in ["left", "up", "down"]
-#     assert m["move"] != "right"
+def test_right_wall():
+    """Змея у правой стены (x=10 при width=11) - нельзя двигаться вправо"""
+    width = 11
+    height = 11
+    you = [(width-1, 1), (width-1, 2), (width-1, 3)]
+    gs = build_test_gamestate(you, [])
+
+    snake = get_snake('snake11')
+
+    # Вызываем метод на экземпляре
+    move = snake.move(gamestate=gs)
+
+    # Безопасные направления: влево, вверх, вниз
+    assert m["move"] in ["left", "up", "down"]
+    assert m["move"] != "right"
 
 # def test_top_wall():  # y=10 это верх
 #     you = [(5, 10), (5, 9), (5, 8)]  # y=10

@@ -50,8 +50,7 @@ class Vector:
                 f = other
                 f_dist = dist
         return f
-
-   def __repr__(self):
+    def __repr__(self):
         return f"Vector({self.x}, {self.y})"
 
     def __str__(self):

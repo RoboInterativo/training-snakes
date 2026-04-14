@@ -28,7 +28,7 @@ def test_left_wall():
     gs = build_test_gamestate(11,11, me=you, food=[])
     #gs = create_minimal_game_state(you, [])  # Пустой список других змей
     # snake = Snake0()
-    snake = get_snake('snake0')
+    snake = get_snake('snake1')
 
     # Вызываем метод на экземпляре
     move = snake.move(gamestate=gs)
