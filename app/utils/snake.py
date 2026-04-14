@@ -6,14 +6,17 @@ class Snake(object):
     def __init__(self, data):
         self.data = data
         self._coords = None
+        points = self.data["body"]
+        self._coords = [Vector(p["x"], p["y"]) for p in points]
+        self.coords = [Vector(p["x"], p["y"]) for p in points]
 
 #
-    @property
-    def coords(self):
-        if self._coords is None:
-            points = self.data["body"]
-            self._coords = [Vector(p["x"], p["y"]) for p in points]
-        return self._coords
+    # @property
+    # def coords(self):
+    #     #if self._coords is None:
+    #         #points = self.data["body"]
+    #         #self._coords = [Vector(p["x"], p["y"]) for p in points]
+    #     return self._coords
 
     @property
     def head(self):
@@ -56,3 +59,9 @@ class Snake(object):
     def taunt(self):
         taunt = self.data["taunt"]
         return taunt if taunt is not None else ""
+
+    def __repr__(self):
+        return str(self.coords)
+
+    def __str__(self):
+        return str(self.coords)

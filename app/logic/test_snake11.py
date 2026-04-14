@@ -45,7 +45,7 @@ def test_right_wall():
     width = 11
     height = 11
     you = [(width-1, 1), (width-1, 2), (width-1, 3)]
-    gs = build_test_gamestate(you, [])
+    gs = build_test_gamestate(width,height,you, [])
 
     snake = get_snake('snake11')
 
@@ -53,23 +53,36 @@ def test_right_wall():
     move = snake.move(gamestate=gs)
 
     # Безопасные направления: влево, вверх, вниз
-    assert m["move"] in ["left", "up", "down"]
-    assert m["move"] != "right"
+    assert move.direction()  in ["left", "up", "down"]
+    assert move.direction()  != "right"
 
-# def test_top_wall():  # y=10 это верх
-#     you = [(5, 10), (5, 9), (5, 8)]  # y=10
-#     other_snakes = [(10, 10), (10, 9), (10, 8)]  # далеко, не мешают
+def test_top_wall():  # y=10 это верх
+    you = [(5, 10), (5, 9), (5, 8)]  # y=10
+    other_snakes = [[(10, 10), (10, 9), (10, 8)]]  # далеко, не мешают
+    width = 11
+    height = 11
+    gs = build_test_gamestate(width,height,you, other_snakes)
+
+    snake = get_snake('snake11')
+
+    # Вызываем метод на экземпляре
+    move = snake.move(gamestate=gs)
+
+
+    assert move.direction() in ["down", "left", "right"]
+    assert move.direction() != "up"
 #
-#     gs = create_minimal_game_state(you, other_snakes)
-#     m = move(gs)
-#     assert m["move"] in ["down", "left", "right"]
-#     assert m["move"] != "up"
-#
-# def test_bottom_wall():  # y=0 это низ
-#     you = [(5, 0), (5, 1), (5, 2)]  # y=0
-#     other_snakes = [(10, 10), (10, 9), (10, 8)]  # далеко, не мешают
-#
-#     gs = create_minimal_game_state(you, other_snakes)
-#     m = move(gs)
-#     assert m["move"] in ["up", "left", "right"]
-#     assert m["move"] != "down"
+def test_bottom_wall():  # y=0 это низ
+    you = [(5, 0), (5, 1), (5, 2)]  # y=0
+    other_snakes = [[(10, 10), (10, 9), (10, 8)]]  # далеко, не мешают
+    width = 11
+    height = 11
+
+    gs = build_test_gamestate(width,height,you, other_snakes)
+
+    snake = get_snake('snake11')
+
+    # Вызываем метод на экземпляре
+    move = snake.move(gamestate=gs)
+    assert move.direction() in ["up", "left", "right"]
+    assert move.direction() != "down"
