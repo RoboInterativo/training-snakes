@@ -46,6 +46,10 @@ def test_distance_to_turn_around():
     ]
     assert dists1 == expected1
 
+def test_you_nect():
+    gs = build_test_gamestate(1, 2, me=[(0, 1), (0, 2),(0,3)])
+    gs.me.neck== V(0, 2)
+
 # def test_real_gs():
 #     gs=GameState(real_json1)
 #     print(gs.me.head)
